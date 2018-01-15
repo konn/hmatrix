@@ -1,0 +1,54 @@
+resolver: ghc-8.4.0.20171214
+compiler: ghc-8.4.0.20171214
+skip-ghc-check: true
+
+setup-info:
+  ghc:
+    macosx:
+      8.4.0.20171214: 
+        url: "https://downloads.haskell.org/~ghc/8.4.1-alpha1/ghc-8.4.0.20171214-x86_64-apple-darwin.tar.xz"
+        sha1: f734623712a3e93fb676ee479de0670303a5d777
+    linux64:
+      8.4.0.20171214: 
+        url: "https://downloads.haskell.org/~ghc/8.4.1-alpha1/ghc-8.4.0.20171214-x86_64-deb8-linux.tar.xz"
+        sha1: 7c3fe68f0332b038c75c3b92d55878580b7d5d30
+
+flags: {}
+packages:
+- packages/tests/
+- packages/special/
+- packages/gsl/
+- packages/glpk/
+- packages/base/
+
+flags:
+  hmatrix-special:
+    safe-cheap: false
+  hmatrix-tests:
+    gsl: true
+  hmatrix:
+    openblas: false
+  hmatrix-gsl:
+    onlygsl: false
+
+package-indices:
+- name: Hackage Head
+  download-prefix: http://head.hackage.haskell.org/package/
+  http: http://head.hackage.haskell.org/01-index.tar.gz
+- name: Hackage
+  download-prefix: http://hackage.haskell.org/package/
+  http: http://hackage.haskell.org/01-index.tar.gz
+
+allow-newer: true
+
+extra-deps: 
+- HUnit-1.6.0.0
+- QuickCheck-2.10.1
+- call-stack-0.1.0
+- primitive-0.6.2.0
+- random-1.1
+- semigroups-0.18.3
+- split-0.2.3.2
+- storable-complex-0.2.2
+- tf-random-0.5
+- vector-0.12.0.1
